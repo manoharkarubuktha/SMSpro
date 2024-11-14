@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Contact</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 p-10">
+    <div class="max-w-lg mx-auto bg-white p-6 rounded-lg shadow-md">
+        <h2 class="text-2xl font-semibold text-gray-800 mb-6">Add Contact</h2>
+
+        <form method="POST">
+            {% csrf_token %}
+            <div class="space-y-4">
+                {{ form.as_p|safe }}
+                <input
+                    type="email"
+                    name="recipient_email"
+                    placeholder="Recipient Email (Optional)"
+                    class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:border-blue-500"
+                />
+            </div>
+
+            <div class="flex items-center mt-6 space-x-4">
+                <button
+                    type="submit"
+                    name="send_email"
+                    class="w-full bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600"
+                >
+                    Save & Send Email
+                </button>
+                <button
+                    type="submit"
+                    class="w-full bg-green-500 text-white py-2 px-4 rounded-lg hover:bg-green-600"
+                >
+                    Save Only
+                </button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

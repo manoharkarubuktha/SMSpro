@@ -1,0 +1,31 @@
+{% extends 'Navbar/ProjectNavbar.html' %}
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sales Report</title>
+</head>
+<body>
+
+{% block body %}
+<div class="container text-center">
+    <div class="row">
+        <div class="col">
+            <h2>Sales Report</h2>
+            <p><strong>Total Sales:</strong> Rs.{{ total_sales }}</p>
+            <p><strong>Average Sales:</strong> Rs.{{ average_sales }}</p>
+            
+            <h3>Sales Distribution Chart</h3>
+            {% if chart %}
+                <img src="data:image/png;base64,{{ chart }}" alt="Sales Chart">
+            {% else %}
+                <p>No chart available.</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+</body>
+</html>
